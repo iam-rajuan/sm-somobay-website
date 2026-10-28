@@ -34,12 +34,13 @@ export default function MemberPortalPage() {
 
       <Card className="shadow-lg border-slate-200">
         <CardHeader className="text-center pb-2">
-          <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-3">
-            <UserCheck className="w-6 h-6" />
+          <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-sm">
+            এস,এম
           </div>
-          <CardTitle className="text-2xl">Member Self-Service</CardTitle>
-          <CardDescription>
-            সদস্য অনলাইন পাসবই ও একাউন্ট হিসাব
+          <CardTitle className="text-xl">সঞ্চয় ও ঋণের পাশ বই</CardTitle>
+          <CardDescription className="text-xs">
+            এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ<br />
+            <span className="text-emerald-700 font-semibold">রেজিঃ ট-ক ২৮৪০/২১ • এলেঙ্গা, কালিহাতী, টাঙ্গাইল</span>
           </CardDescription>
         </CardHeader>
 
@@ -47,12 +48,12 @@ export default function MemberPortalPage() {
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-xs font-semibold uppercase text-slate-600 mb-1">
-                Account Number (হিসাব নং)
+                Savings Account No (সঞ্চয়ী হিসাব নং)
               </label>
               <div className="relative">
                 <Input
                   type="text"
-                  placeholder="e.g. M-10023"
+                  placeholder="e.g. এস-১০২৪ বা কেন্দ্র নং"
                   value={accountNo}
                   onChange={(e) => setAccountNo(e.target.value)}
                   required

@@ -14,15 +14,15 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-sm">
-              <Landmark className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-emerald-700 flex items-center justify-center text-white shadow-sm font-bold text-sm tracking-tight">
+              এস,এম
             </div>
             <div>
-              <span className="font-bold text-lg text-slate-900 tracking-tight block leading-tight">
-                সমিতি ম্যানেজমেন্ট সিস্টেম
+              <span className="font-bold text-base text-slate-900 tracking-tight block leading-tight">
+                এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ
               </span>
-              <span className="text-xs text-slate-500 font-medium block">
-                Somity Management System
+              <span className="text-[11px] text-emerald-700 font-semibold block">
+                S.M. Somobay Somity • রেজিঃ ট-ক ২৮৪০/২১
               </span>
             </div>
           </Link>

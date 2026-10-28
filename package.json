@@ -1,8 +1,8 @@
 {
-  "name": "somity-website",
+  "name": "sm-somobay-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Somity Management System - Public Website & Member Self-Service Portal (Next.js App Router)",
+  "description": "S.M. Khudra Sanchay O Rindan Samabay Samity Limited - Public Website & Member Self-Service Portal",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",

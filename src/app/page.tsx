@@ -25,15 +25,15 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto space-y-6">
             <Badge variant="success" className="px-3 py-1 text-sm gap-1.5 font-medium shadow-sm">
               <ShieldCheck className="w-4 h-4 text-emerald-700" />
-              100% Regulated & Transparent Microfinance Cooperative
+              গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত • রেজিঃ ট-ক ২৮৪০/২১
             </Badge>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              স্মার্ট সমিতি ব্যবস্থাপনা ও <span className="text-emerald-600">ডিজিটাল হিসাব</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান <span className="text-emerald-700">সমবায় সমিতি লিঃ</span>
             </h1>
 
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Welcome to the Somity Management System member portal. Track your daily/weekly savings, DPS maturity, active loan installments, and dividend shares with transparent real-time passbook statements.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              প্রধান কার্যালয়: এলেঙ্গা, কালিহাতী, টাঙ্গাইল। সদস্যদের সঞ্চয় ও ঋণের ডিজিটাল পাসবই (সঞ্চয় ও ঋণের পাশ বই) ব্যবস্থাপনা, সাপ্তাহিক কিস্তি ট্র্যাকিং এবং ডিজিটাল হিসাব পরিষেবা।
             </p>
 
             <div className="flex flex-wrap justify-center items-center gap-4 pt-4">

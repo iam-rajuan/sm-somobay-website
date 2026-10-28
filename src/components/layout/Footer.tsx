@@ -9,16 +9,16 @@ export const Footer = () => {
           {/* Col 1: About */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
-                <Landmark className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-xs">
+                এস,এম
               </div>
-              <span className="font-bold text-lg text-white">সমিতি ম্যানেজমেন্ট সিস্টেম</span>
+              <span className="font-bold text-base text-white">এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ</span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Modern digital cooperative and micro-credit society management. Providing safe savings, competitive term deposits, and transparent microfinance loans.
+              সদস্য-ভিত্তিক ক্ষুদ্র সঞ্চয় ও ঋণ কার্যক্রম। সদস্যের আর্থিক সচ্ছলতা ও সার্বিক উন্নয়নের লক্ষ্যে বিশ্বস্ত সমবায় প্রতিষ্ঠান।
             </p>
-            <div className="text-xs text-slate-500">
-              Govt. Cooperative Reg: #DH-10294/2026
+            <div className="text-xs text-emerald-400 font-medium">
+              গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত • রেজিঃ ট-ক ২৮৪০/২১
             </div>
           </div>
 
@@ -73,22 +73,22 @@ export const Footer = () => {
             <div className="space-y-3 text-sm text-slate-400">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
-                <span>Level 4, Cooperative Bhaban, Motijheel C/A, Dhaka-1000, Bangladesh</span>
+                <span>প্রধান কার্যালয়: এলেঙ্গা, কালিহাতী, টাঙ্গাইল, বাংলাদেশ (Elenga, Kalihati, Tangail)</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>+880 1700-000000 / 02-9580000</span>
+                <span>+880 1700-000000</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>support@somityhisab.org.bd</span>
+                <span>info@smsomobay.org.bd</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Somity Management System. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ (S.M. Somobay Somity). All rights reserved.</p>
           <p className="flex items-center gap-1 mt-2 sm:mt-0">
             Engineered with <Heart className="w-3.5 h-3.5 text-rose-500 inline fill-rose-500" /> for Bangladeshi Cooperatives
           </p>

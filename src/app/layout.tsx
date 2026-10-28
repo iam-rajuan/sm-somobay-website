@@ -4,8 +4,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Somity Management System — Cooperative & Microfinance Portal',
-  description: 'Official portal for member self-service, savings, DPS, FDR, and micro-loan services.',
+  title: 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ — S.M. Somobay Somity',
+  description: 'গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত (রেজিঃ ট-ক ২৮৪০/২১) • প্রধান কার্যালয়: এলেঙ্গা, কালিহাতী, টাঙ্গাইল। সঞ্চয় ও ঋণের পাশ বই অনলাইন পোর্টাল।',
 };
 
 export default function RootLayout({
