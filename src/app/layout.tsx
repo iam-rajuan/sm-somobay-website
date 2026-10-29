@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata: Metadata = {
   title: 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ — S.M. Somobay Somity',
@@ -24,12 +25,15 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="theme-color" content="#047857" />
       </head>
       <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-slate-50/60 font-sans selection:bg-emerald-600 selection:text-white">
-        <Navbar />
-        <main className="flex-1 min-w-0">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="flex-1 min-w-0">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

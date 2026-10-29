@@ -10,21 +10,37 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: [
-          'Inter',
+          'var(--font-sans)',
           'SolaimanLipi',
+          'Inter',
           '-apple-system',
           'BlinkMacSystemFont',
           'Segoe UI',
           'Roboto',
           'sans-serif',
         ],
+        financial: [
+          'var(--font-financial)',
+          'Inter',
+          'SolaimanLipi',
+          '-apple-system',
+          'sans-serif',
+        ],
         bengali: [
           'SolaimanLipi',
           'sans-serif',
         ],
+        english: [
+          'Inter',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'sans-serif',
+        ],
         mono: [
           'JetBrains Mono',
-          'Inter',
+          'SolaimanLipi',
           'ui-monospace',
           'monospace',
         ],
