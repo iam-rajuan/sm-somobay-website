@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" className="scroll-smooth">
+    <html lang="bn" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -25,7 +25,7 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#047857" />
       </head>
-      <body className="antialiased flex flex-col min-h-screen text-slate-900 bg-slate-50/60 font-sans selection:bg-emerald-600 selection:text-white">
+      <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-slate-50/60 font-sans selection:bg-emerald-600 selection:text-white">
         <Navbar />
         <main className="flex-1 min-w-0">{children}</main>
         <Footer />
