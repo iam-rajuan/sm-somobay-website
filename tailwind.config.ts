@@ -8,6 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          'Inter',
+          'SolaimanLipi',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'sans-serif',
+        ],
+        bengali: [
+          'SolaimanLipi',
+          'sans-serif',
+        ],
+        mono: [
+          'JetBrains Mono',
+          'Inter',
+          'ui-monospace',
+          'monospace',
+        ],
+      },
       colors: {
         somity: {
           50: '#f0fdf4',

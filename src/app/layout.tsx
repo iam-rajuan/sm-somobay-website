@@ -20,9 +20,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet" />
         <meta name="theme-color" content="#047857" />
       </head>
       <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-slate-50/60 font-sans selection:bg-emerald-600 selection:text-white">
