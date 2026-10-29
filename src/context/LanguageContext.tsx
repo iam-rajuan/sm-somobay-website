@@ -54,8 +54,22 @@ const LanguageContext = createContext<LanguageContextType>({
   formatNum: (v) => String(v),
 });
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>('bn');
+export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLanguage?: Language }> = ({
+  children,
+  initialLanguage = 'bn',
+}) => {
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (initialLanguage && (initialLanguage === 'en' || initialLanguage === 'bn')) {
+      return initialLanguage;
+    }
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('sm_somity_lang') as Language;
+        if (saved === 'en' || saved === 'bn') return saved;
+      } catch {}
+    }
+    return 'bn';
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -63,16 +77,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     try {
       const saved = localStorage.getItem('sm_somity_lang') as Language;
       if (saved === 'bn' || saved === 'en') {
-        setLanguageState(saved);
+        if (saved !== language) {
+          setLanguageState(saved);
+        }
+        document.cookie = `sm_somity_lang=${saved}; path=/; max-age=31536000; SameSite=Lax`;
         if (typeof document !== 'undefined') {
           document.documentElement.lang = saved;
           document.documentElement.setAttribute('data-lang', saved);
         }
       } else {
-        localStorage.setItem('sm_somity_lang', 'bn');
+        localStorage.setItem('sm_somity_lang', language);
+        document.cookie = `sm_somity_lang=${language}; path=/; max-age=31536000; SameSite=Lax`;
         if (typeof document !== 'undefined') {
-          document.documentElement.lang = 'bn';
-          document.documentElement.setAttribute('data-lang', 'bn');
+          document.documentElement.lang = language;
+          document.documentElement.setAttribute('data-lang', language);
         }
       }
     } catch {
@@ -85,6 +103,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     if (typeof document !== 'undefined') {
       document.documentElement.lang = language;
       document.documentElement.setAttribute('data-lang', language);
+      document.cookie = `sm_somity_lang=${language}; path=/; max-age=31536000; SameSite=Lax`;
       document.title =
         language === 'en'
           ? 'S.M. Khudra Sanchay O Rindan Samabay Samity Limited'
@@ -96,9 +115,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLanguageState(lang);
     try {
       localStorage.setItem('sm_somity_lang', lang);
+      document.cookie = `sm_somity_lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
       if (typeof document !== 'undefined') {
         document.documentElement.lang = lang;
         document.documentElement.setAttribute('data-lang', lang);
+        document.title =
+          lang === 'en'
+            ? 'S.M. Khudra Sanchay O Rindan Samabay Samity Limited'
+            : 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ — S.M. Somobay Somity';
       }
     } catch {}
   };
