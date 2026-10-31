@@ -344,24 +344,25 @@ export default function MemberPortalPage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 font-sans">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 font-sans">
+      {/* Top bar */}
       <div className="flex items-center justify-between mb-6 no-print">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-700 transition"
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-emerald-700 transition"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-3.5 h-3.5" />
           <span>{language === 'bn' ? 'ওয়েবসাইটে ফিরে যান' : 'Back to Website'}</span>
         </Link>
 
         <div className="flex items-center gap-2">
-          {/* Segmented Language Switcher */}
-          <div className="flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
+          {/* Language Switcher */}
+          <div className="flex items-center border border-slate-200 rounded overflow-hidden">
             <button
               type="button"
               onClick={() => setLanguage('bn')}
-              className={`px-3 py-1.5 text-xs sm:text-[13px] font-bold rounded-lg transition cursor-pointer ${
-                language === 'bn' ? 'bg-emerald-700 text-white shadow-xs font-bold' : 'text-slate-600 hover:text-slate-900'
+              className={`px-2.5 py-1 text-xs font-medium transition cursor-pointer ${
+                language === 'bn' ? 'bg-emerald-700 text-white' : 'text-slate-600 bg-white hover:bg-slate-50'
               }`}
             >
               বাংলা
@@ -369,8 +370,8 @@ export default function MemberPortalPage() {
             <button
               type="button"
               onClick={() => setLanguage('en')}
-              className={`px-3 py-1.5 text-xs sm:text-[13px] font-bold rounded-lg transition cursor-pointer ${
-                language === 'en' ? 'bg-emerald-700 text-white shadow-xs font-bold' : 'text-slate-600 hover:text-slate-900'
+              className={`px-2.5 py-1 text-xs font-medium transition cursor-pointer ${
+                language === 'en' ? 'bg-emerald-700 text-white' : 'text-slate-600 bg-white hover:bg-slate-50'
               }`}
             >
               EN
@@ -383,19 +384,19 @@ export default function MemberPortalPage() {
                 variant="outline"
                 size="sm"
                 onClick={() => window.print()}
-                className="h-10 px-4 text-xs sm:text-[13px] font-bold rounded-xl gap-2 cursor-pointer"
+                className="gap-1.5 cursor-pointer"
               >
-                <Printer className="w-4 h-4" />
-                <span>{language === 'bn' ? 'পাসবই প্রিন্ট' : 'Print Passbook'}</span>
+                <Printer className="w-3.5 h-3.5" />
+                <span>{language === 'bn' ? 'প্রিন্ট' : 'Print'}</span>
               </Button>
 
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setPassbook(null)}
-                className="h-10 px-4 text-xs sm:text-[13px] font-bold rounded-xl gap-2 text-rose-600 hover:bg-rose-50 cursor-pointer"
+                className="gap-1.5 text-rose-600 hover:bg-rose-50 cursor-pointer"
               >
-                <LogOut className="w-4 h-4" />
+                <LogOut className="w-3.5 h-3.5" />
                 <span>{language === 'bn' ? 'লগআউট' : 'Logout'}</span>
               </Button>
             </>
@@ -404,25 +405,25 @@ export default function MemberPortalPage() {
       </div>
 
       {!passbook ? (
-        /* LOGIN / ACCOUNT SEARCH CARD */
-        <div className="max-w-md mx-auto space-y-4">
-          <Card className="shadow-xl border-slate-200 rounded-2xl overflow-hidden">
-            <CardHeader className="text-center pb-3 bg-gradient-to-b from-emerald-50/60 to-white">
-              <div className="w-14 h-14 bg-emerald-700 text-white rounded-2xl flex items-center justify-center mx-auto mb-3 font-bold text-lg shadow-sm">
+        /* LOGIN CARD */
+        <div className="max-w-sm mx-auto">
+          <Card className="shadow-sm">
+            <CardHeader className="text-center pb-2">
+              <div className="w-12 h-12 bg-emerald-700 text-white rounded flex items-center justify-center mx-auto mb-3 font-bold text-base">
                 {language === 'bn' ? 'এস,এম' : 'SM'}
               </div>
-              <CardTitle className="text-xl font-bold text-slate-900 tracking-tight">
+              <CardTitle className="text-lg text-slate-900">
                 {language === 'bn' ? 'সঞ্চয় ও ঋণের ডিজিটাল পাশ বই' : 'Electronic Member Passbook'}
               </CardTitle>
-              <CardDescription className="text-xs text-slate-600 mt-1 leading-relaxed">
+              <CardDescription className="text-xs text-slate-500 mt-1">
                 {language === 'bn'
                   ? 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ'
                   : 'S.M. Khudra Sanchay O Rindan Samabay Samity Ltd.'}
                 <br />
-                <span className="text-emerald-700 font-semibold font-mono">
+                <span className="text-emerald-700 font-medium font-mono">
                   {language === 'bn'
-                    ? 'রেজিঃ ট-ক ২৮৪০/২১ • প্রধান কার্যালয়: এলেঙ্গা, কালিহাতী'
-                    : 'Govt Reg: T-K 2840/21 • Elenga, Kalihati, Tangail'}
+                    ? 'রেজিঃ ট-ক ২৮৪০/২১ • এলেঙ্গা, কালিহাতী'
+                    : 'Reg: T-K 2840/21 • Elenga, Kalihati'}
                 </span>
               </CardDescription>
             </CardHeader>
@@ -433,13 +434,13 @@ export default function MemberPortalPage() {
                   e.preventDefault();
                   handleSearchPassbook();
                 }}
-                className="space-y-4"
+                className="space-y-3"
               >
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
                     {language === 'bn'
-                      ? 'সদস্য হিসাব নম্বর (Account No) বা মোবাইল'
-                      : 'Member Account Number or Mobile'}{' '}
+                      ? 'সদস্য হিসাব নম্বর বা মোবাইল'
+                      : 'Account Number or Mobile'}{' '}
                     <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
@@ -449,15 +450,15 @@ export default function MemberPortalPage() {
                       value={accountNo}
                       onChange={(e) => setAccountNo(e.target.value)}
                       required
-                      className="font-mono text-sm pl-9"
+                      className="font-mono text-sm pl-8"
                     />
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-3" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    {language === 'bn' ? 'গোপন পিন / পাসওয়ার্ড (PIN)' : 'Security PIN / Password'}
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                    {language === 'bn' ? 'গোপন পিন / পাসওয়ার্ড' : 'Security PIN / Password'}
                   </label>
                   <div className="relative">
                     <Input
@@ -465,57 +466,57 @@ export default function MemberPortalPage() {
                       value={pin}
                       onChange={(e) => setPin(e.target.value)}
                       required
-                      className="font-mono text-sm pl-9"
+                      className="font-mono text-sm pl-8"
                     />
-                    <KeyRound className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <KeyRound className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-3" />
                   </div>
                 </div>
 
                 {errorMessage && (
-                  <div className="p-3 bg-rose-50 text-rose-800 text-xs rounded-xl border border-rose-200 flex items-center gap-2">
-                    <ShieldAlert className="w-4 h-4 text-rose-600 shrink-0" />
+                  <div className="p-2.5 bg-rose-50 text-rose-800 text-xs rounded border border-rose-200 flex items-center gap-2">
+                    <ShieldAlert className="w-3.5 h-3.5 text-rose-600 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
 
                 <Button
                   type="submit"
-                  className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm py-2.5 rounded-xl shadow-xs cursor-pointer"
+                  className="w-full font-medium text-sm cursor-pointer"
                   disabled={loading}
                 >
                   {loading
                     ? language === 'bn'
                       ? 'যাচাই করা হচ্ছে...'
-                      : 'Verifying Credentials...'
+                      : 'Verifying...'
                     : language === 'bn'
                     ? 'ইলেকট্রনিক পাশবই দেখুন'
                     : 'View Electronic Passbook'}
                 </Button>
               </form>
 
-              {/* DEMO ACCOUNTS QUICK BUTTONS */}
-              <div className="pt-4 border-t border-slate-100 space-y-2">
-                <div className="text-[11px] font-bold text-slate-500 text-center uppercase tracking-wider">
-                  {language === 'bn' ? 'এক ক্লিকে ডেমো অ্যাকাউন্ট পরীক্ষা করুন:' : 'One-Click Demo Test Accounts:'}
+              {/* Demo accounts */}
+              <div className="pt-3 border-t border-slate-100 space-y-2">
+                <div className="text-[11px] font-medium text-slate-400 text-center uppercase tracking-wider">
+                  {language === 'bn' ? 'ডেমো অ্যাকাউন্ট:' : 'Demo Test Accounts:'}
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <button
                     type="button"
                     onClick={() => handleQuickDemo('SM-2840-001')}
-                    className="p-2.5 rounded-xl border border-emerald-200 bg-emerald-50/50 hover:bg-emerald-100 text-emerald-900 font-semibold text-left transition cursor-pointer"
+                    className="p-2 rounded border border-slate-200 bg-slate-50 hover:bg-slate-100 text-left transition cursor-pointer"
                   >
-                    <div className="font-mono font-bold text-[11px]">SM-2840-001</div>
-                    <div className="text-[11px] text-slate-600 truncate">
+                    <div className="font-mono font-medium text-[11px] text-slate-700">SM-2840-001</div>
+                    <div className="text-[11px] text-slate-500 truncate">
                       {language === 'bn' ? 'মোঃ আব্দুল করিম' : 'Md. Abdul Karim'}
                     </div>
                   </button>
                   <button
                     type="button"
                     onClick={() => handleQuickDemo('SM-2840-002')}
-                    className="p-2.5 rounded-xl border border-sky-200 bg-sky-50/50 hover:bg-sky-100 text-sky-900 font-semibold text-left transition cursor-pointer"
+                    className="p-2 rounded border border-slate-200 bg-slate-50 hover:bg-slate-100 text-left transition cursor-pointer"
                   >
-                    <div className="font-mono font-bold text-[11px]">SM-2840-002</div>
-                    <div className="text-[11px] text-slate-600 truncate">
+                    <div className="font-mono font-medium text-[11px] text-slate-700">SM-2840-002</div>
+                    <div className="text-[11px] text-slate-500 truncate">
                       {language === 'bn' ? 'মোছাঃ রহিমা বেগম' : 'Mst. Rahima Begum'}
                     </div>
                   </button>
@@ -526,143 +527,145 @@ export default function MemberPortalPage() {
         </div>
       ) : (
         /* PASSBOOK STATEMENT VIEW */
-        <div className="space-y-6 bg-white rounded-2xl border border-slate-200/90 shadow-card p-6 sm:p-8">
-          {/* Official Passbook Title Banner */}
-          <div className="text-center border-b pb-5 space-y-1">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 mb-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="space-y-5 bg-white rounded-lg border border-slate-200 shadow-sm p-5 sm:p-7">
+          {/* Header */}
+          <div className="text-center border-b border-slate-200 pb-4 space-y-1">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[11px] font-medium border border-emerald-200 mb-1">
+              <ShieldCheck className="w-3 h-3" />
               <span>
                 {language === 'bn'
                   ? 'গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত সমবায় সমিতি'
                   : 'Govt. Approved Cooperative Society of Bangladesh'}
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            <h1 className="text-lg sm:text-xl font-bold text-slate-900">
               {language === 'bn'
                 ? 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ'
                 : 'S.M. Khudra Sanchay O Rindan Samabay Samity Limited'}
             </h1>
-            <div className="text-xs font-semibold text-slate-700">
+            <div className="text-xs text-slate-600">
               {language === 'bn'
                 ? 'রেজিঃ নং- ট-ক ২৮৪০/২১ • প্রধান কার্যালয়: এলেঙ্গা, কালিহাতী, টাঙ্গাইল'
-                : 'Govt. Reg No: T-K 2840/21 • Head Office: Elenga, Kalihati, Tangail'}
+                : 'Reg No: T-K 2840/21 • Head Office: Elenga, Kalihati, Tangail'}
             </div>
-            <div className="text-sm font-bold text-emerald-800 underline pt-1">
+            <div className="text-sm font-semibold text-emerald-700 pt-1">
               {language === 'bn'
-                ? 'সঞ্চয় ও ঋণের ইলেকট্রনিক পাশ বই (Electronic Passbook)'
+                ? 'সঞ্চয় ও ঋণের ইলেকট্রনিক পাশ বই'
                 : 'Electronic Savings & Loan Passbook Statement'}
             </div>
           </div>
 
-          {/* Member KYC Information Card */}
-          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-[13px]">
+          {/* KYC Information */}
+          <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'সদস্যের নাম:' : 'Member Name:'}
               </span>
-              <strong className="text-slate-900 text-sm sm:text-base font-bold">
+              <strong className="text-slate-900 text-sm font-semibold">
                 {language === 'bn' ? passbook.name : passbook.nameEn || passbook.name}
               </strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'পিতা/স্বামীর নাম:' : 'Father / Spouse:'}
               </span>
-              <strong className="text-slate-900 text-sm sm:text-base font-bold">
+              <strong className="text-slate-900 text-sm font-semibold">
                 {language === 'bn' ? passbook.fatherName : passbook.fatherNameEn || passbook.fatherName}
               </strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'সঞ্চয়ী হিসাব নং:' : 'Account Number:'}
               </span>
-              <strong className="text-emerald-800 font-mono text-sm sm:text-base font-black">{passbook.accountNo}</strong>
+              <strong className="text-emerald-700 font-mono text-sm font-bold">{passbook.accountNo}</strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'সমিতি ও কেন্দ্র:' : 'Somity / Center:'}
               </span>
-              <strong className="text-slate-900 text-sm sm:text-base font-bold">
+              <strong className="text-slate-900 text-sm font-semibold">
                 {language === 'bn' ? passbook.somity : passbook.somityEn || passbook.somity}
               </strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'গ্রাহকের ধরণ:' : 'Member Category:'}
               </span>
-              <strong className="text-slate-800 font-semibold">{passbook.type}</strong>
+              <strong className="text-slate-800 font-medium text-sm">
+                {language === 'bn' ? passbook.type : passbook.typeEn || passbook.type}
+              </strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'মোবাইল নম্বর:' : 'Mobile Number:'}
               </span>
-              <strong className="text-slate-800 font-mono font-bold">{passbook.mobile}</strong>
+              <strong className="text-slate-800 font-mono font-medium text-sm">{passbook.mobile}</strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'ভর্তির তারিখ:' : 'Enrollment Date:'}
               </span>
-              <strong className="text-slate-800 font-mono font-bold">{formatNum(passbook.joiningDate)}</strong>
+              <strong className="text-slate-800 font-mono font-medium text-sm">{formatNum(passbook.joiningDate)}</strong>
             </div>
             <div>
-              <span className="text-slate-500 block text-xs">
+              <span className="text-slate-500 block text-[11px]">
                 {language === 'bn' ? 'হিসাবের স্থিতি:' : 'Account Status:'}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-emerald-700 text-xs sm:text-[13px]">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>{language === 'bn' ? 'সক্রিয় (Active)' : 'Active'}</span>
+              <span className="inline-flex items-center gap-1 font-medium text-emerald-700 text-xs">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>{language === 'bn' ? 'সক্রিয়' : 'Active'}</span>
               </span>
             </div>
           </div>
 
-          {/* Summary Balance Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
-            <div className="p-5 sm:p-6 rounded-2xl bg-emerald-50 border border-emerald-200 shadow-2xs">
-              <span className="text-xs sm:text-[13px] text-emerald-800 font-bold block uppercase tracking-wider">
-                {language === 'bn' ? 'সাধারণ সঞ্চয় স্থিতি' : 'General Savings Balance'}
+          {/* Balance Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="p-4 rounded-lg bg-white border border-slate-200">
+              <span className="text-[11px] text-slate-500 font-medium block">
+                {language === 'bn' ? 'সাধারণ সঞ্চয়' : 'General Savings'}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-financial tabular-nums text-emerald-900 mt-1.5 block">
+              <span className="text-lg font-bold font-financial tabular-nums text-slate-900 mt-1 block">
                 {formatMoney(passbook.generalBalance)}
               </span>
-              <span className="text-xs text-emerald-700 mt-1 block font-medium font-financial tabular-nums">
+              <span className="text-[10px] text-slate-400 mt-0.5 block font-financial tabular-nums">
                 {language === 'bn'
-                  ? `টার্গেট: ${formatMoney(passbook.generalTarget)} / সপ্তাহ`
-                  : `Target: ${formatMoney(passbook.generalTarget)} / week`}
+                  ? `টার্গেট: ${formatMoney(passbook.generalTarget)}/সপ্তাহ`
+                  : `Target: ${formatMoney(passbook.generalTarget)}/week`}
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl bg-teal-50 border border-teal-200 shadow-2xs">
-              <span className="text-xs sm:text-[13px] text-teal-800 font-bold block uppercase tracking-wider">
-                {language === 'bn' ? 'বিশেষ সঞ্চয় স্থিতি' : 'Special Savings Balance'}
+            <div className="p-4 rounded-lg bg-white border border-slate-200">
+              <span className="text-[11px] text-slate-500 font-medium block">
+                {language === 'bn' ? 'বিশেষ সঞ্চয়' : 'Special Savings'}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-financial tabular-nums text-teal-900 mt-1.5 block">
+              <span className="text-lg font-bold font-financial tabular-nums text-slate-900 mt-1 block">
                 {formatMoney(passbook.specialBalance)}
               </span>
-              <span className="text-xs text-teal-700 mt-1 block font-medium">
-                {language === 'bn' ? 'জরুরি সঞ্চয় তহবিল' : 'Contingency Fund'}
+              <span className="text-[10px] text-slate-400 mt-0.5 block">
+                {language === 'bn' ? 'জরুরি তহবিল' : 'Contingency Fund'}
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl bg-amber-50 border border-amber-200 shadow-2xs">
-              <span className="text-xs sm:text-[13px] text-amber-800 font-bold block uppercase tracking-wider">
-                {language === 'bn' ? 'শেয়ার মূলধন ও আমানত' : 'Share Capital Deposit'}
+            <div className="p-4 rounded-lg bg-white border border-slate-200">
+              <span className="text-[11px] text-slate-500 font-medium block">
+                {language === 'bn' ? 'শেয়ার মূলধন' : 'Share Capital'}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-financial tabular-nums text-amber-900 mt-1.5 block">
+              <span className="text-lg font-bold font-financial tabular-nums text-slate-900 mt-1 block">
                 {formatMoney(passbook.shareBalance)}
               </span>
-              <span className="text-xs text-amber-700 mt-1 block font-medium">
-                {language === 'bn' ? 'সমবায় ভোটিং শেয়ার' : 'Cooperative Ownership'}
+              <span className="text-[10px] text-slate-400 mt-0.5 block">
+                {language === 'bn' ? 'সমবায় শেয়ার' : 'Cooperative Share'}
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl bg-rose-50 border border-rose-200 shadow-2xs">
-              <span className="text-xs sm:text-[13px] text-rose-800 font-bold block uppercase tracking-wider">
-                {language === 'bn' ? 'অবশিষ্ট ঋণ বকেয়া' : 'Outstanding Loan Balance'}
+            <div className="p-4 rounded-lg bg-white border border-rose-200">
+              <span className="text-[11px] text-rose-600 font-medium block">
+                {language === 'bn' ? 'ঋণ বকেয়া' : 'Loan Due'}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-financial tabular-nums text-rose-900 mt-1.5 block">
+              <span className="text-lg font-bold font-financial tabular-nums text-rose-700 mt-1 block">
                 {passbook.loanAccount ? formatMoney(passbook.loanAccount.due) : formatMoney(0)}
               </span>
-              <span className="text-xs text-rose-700 mt-1 block font-medium font-financial tabular-nums">
+              <span className="text-[10px] text-slate-400 mt-0.5 block font-financial tabular-nums">
                 {passbook.loanAccount
                   ? language === 'bn'
                     ? `কিস্তি: ${formatMoney(passbook.loanAccount.installmentAmount)}`
@@ -676,32 +679,32 @@ export default function MemberPortalPage() {
 
           {/* Active Loan Details */}
           {passbook.loanAccount && (
-            <div className="border border-slate-200 rounded-2xl p-5 space-y-3 bg-white">
+            <div className="border border-slate-200 rounded-lg p-4 space-y-3 bg-white">
               <div className="flex items-center justify-between border-b border-slate-100 pb-2 flex-wrap gap-2">
-                <div className="font-bold text-sm text-slate-900 flex items-center gap-2">
+                <div className="font-medium text-sm text-slate-900 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-emerald-700" />
                   <span>
                     {language === 'bn'
-                      ? `চলতি ঋণ হিসাব বিবরণী (${passbook.loanAccount.loanId})`
-                      : `Active Loan Portfolio (${passbook.loanAccount.loanId})`}
+                      ? `চলতি ঋণ হিসাব (${passbook.loanAccount.loanId})`
+                      : `Active Loan (${passbook.loanAccount.loanId})`}
                   </span>
                 </div>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
+                <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[11px] font-medium border border-emerald-200">
                   {passbook.loanAccount.status}
                 </span>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                 <div>
-                  <span className="text-slate-500 block">
-                    {language === 'bn' ? 'মঞ্জুরকৃত আসল:' : 'Sanctioned Principal:'}
+                  <span className="text-slate-500 block text-[11px]">
+                    {language === 'bn' ? 'মঞ্জুরকৃত আসল:' : 'Principal:'}
                   </span>
                   <strong className="text-slate-800 font-financial tabular-nums">
                     {formatMoney(passbook.loanAccount.principal)}
                   </strong>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">
+                  <span className="text-slate-500 block text-[11px]">
                     {language === 'bn' ? 'মুনাফা (১৫%):' : 'Profit (15%):'}
                   </span>
                   <strong className="text-slate-800 font-financial tabular-nums">
@@ -709,31 +712,31 @@ export default function MemberPortalPage() {
                   </strong>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">
+                  <span className="text-slate-500 block text-[11px]">
                     {language === 'bn' ? 'মোট পরিশোধযোগ্য:' : 'Total Repayable:'}
                   </span>
-                  <strong className="text-slate-900 font-financial tabular-nums font-bold">
+                  <strong className="text-slate-900 font-financial tabular-nums font-semibold">
                     {formatMoney(passbook.loanAccount.totalLoan)}
                   </strong>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">
+                  <span className="text-slate-500 block text-[11px]">
                     {language === 'bn' ? 'পরিশোধিত জমা:' : 'Total Repaid:'}
                   </span>
-                  <strong className="text-emerald-700 font-financial tabular-nums font-bold">
+                  <strong className="text-emerald-700 font-financial tabular-nums font-semibold">
                     {formatMoney(passbook.loanAccount.totalPaid)}
                   </strong>
                 </div>
               </div>
 
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-600 bg-slate-50 p-2.5 rounded-xl border">
+              <div className="flex items-center justify-between text-xs text-slate-600 bg-slate-50 p-2.5 rounded border border-slate-200">
                 <span>
-                  {language === 'bn' ? 'পরবর্তী কিস্তির তারিখ: ' : 'Next Due Date: '}
-                  <strong>{formatNum(passbook.loanAccount.nextDueDate)}</strong>
+                  {language === 'bn' ? 'পরবর্তী কিস্তি: ' : 'Next Due: '}
+                  <strong className="font-mono">{formatNum(passbook.loanAccount.nextDueDate)}</strong>
                 </span>
                 <span>
-                  {language === 'bn' ? 'প্রতি কিস্তি প্রদেয়: ' : 'Installment Payable: '}
-                  <strong className="text-emerald-800 font-financial tabular-nums">
+                  {language === 'bn' ? 'প্রতি কিস্তি: ' : 'Installment: '}
+                  <strong className="text-emerald-700 font-financial tabular-nums">
                     {formatMoney(passbook.loanAccount.installmentAmount)}
                   </strong>
                 </span>
@@ -741,42 +744,42 @@ export default function MemberPortalPage() {
             </div>
           )}
 
-          {/* Savings Ledger Statement Table */}
+          {/* Transaction Table */}
           <div className="space-y-3">
-            <h3 className="font-bold text-sm text-slate-900 flex items-center gap-2">
+            <h3 className="font-medium text-sm text-slate-900 flex items-center gap-2">
               <Receipt className="w-4 h-4 text-emerald-700" />
               <span>
                 {language === 'bn'
-                  ? 'সাম্প্রতিক সঞ্চয় লেনদেন খতিয়ান (Savings Statement)'
-                  : 'Recent Savings Ledger & Statement'}
+                  ? 'সাম্প্রতিক সঞ্চয় লেনদেন খতিয়ান'
+                  : 'Recent Savings Ledger Statement'}
               </span>
             </h3>
 
-            <div className="overflow-x-auto border border-slate-200 rounded-2xl shadow-xs">
-              <table className="w-full text-left text-xs sm:text-[13.5px] border-collapse">
-                <thead className="bg-slate-900 text-white font-bold text-xs uppercase tracking-wider">
+            <div className="overflow-x-auto border border-slate-200 rounded-lg">
+              <table className="w-full text-sm">
+                <thead className="bg-slate-800 text-white text-xs">
                   <tr>
-                    <th className="p-3.5 sm:p-4">{language === 'bn' ? 'তারিখ' : 'Date'}</th>
-                    <th className="p-3.5 sm:p-4">{language === 'bn' ? 'বিবরণ / খাত' : 'Description / Head'}</th>
-                    <th className="p-3.5 sm:p-4 text-right">{language === 'bn' ? 'উত্তোলন (Debit)' : 'Debit'}</th>
-                    <th className="p-3.5 sm:p-4 text-right">{language === 'bn' ? 'জমা (Credit)' : 'Credit'}</th>
-                    <th className="p-3.5 sm:p-4 text-right">{language === 'bn' ? 'ব্যালেন্স স্থিতি' : 'Balance'}</th>
+                    <th className="p-3 text-left font-medium">{language === 'bn' ? 'তারিখ' : 'Date'}</th>
+                    <th className="p-3 text-left font-medium">{language === 'bn' ? 'বিবরণ' : 'Description'}</th>
+                    <th className="p-3 text-right font-medium">{language === 'bn' ? 'উত্তোলন' : 'Debit'}</th>
+                    <th className="p-3 text-right font-medium">{language === 'bn' ? 'জমা' : 'Credit'}</th>
+                    <th className="p-3 text-right font-medium">{language === 'bn' ? 'ব্যালেন্স' : 'Balance'}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody>
                   {passbook.transactions.map((tx, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                      <td className="p-3.5 sm:p-4 font-mono text-slate-600 font-semibold">{formatNum(tx.date)}</td>
-                      <td className="p-3.5 sm:p-4 text-slate-800 font-semibold">
+                    <tr key={idx} className="hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-b-0">
+                      <td className="p-3 font-mono text-slate-600 text-xs">{formatNum(tx.date)}</td>
+                      <td className="p-3 text-slate-800 text-xs">
                         {language === 'bn' ? tx.particulars : tx.particularsEn || tx.particulars}
                       </td>
-                      <td className="p-3.5 sm:p-4 text-right font-financial tabular-nums text-rose-600 font-bold">
+                      <td className="p-3 text-right font-financial tabular-nums text-rose-600 font-medium text-xs">
                         {tx.debit > 0 ? formatMoney(tx.debit) : '—'}
                       </td>
-                      <td className="p-3.5 sm:p-4 text-right font-financial tabular-nums text-emerald-700 font-bold">
+                      <td className="p-3 text-right font-financial tabular-nums text-emerald-700 font-medium text-xs">
                         {tx.credit > 0 ? formatMoney(tx.credit) : '—'}
                       </td>
-                      <td className="p-3.5 sm:p-4 text-right font-financial tabular-nums font-black text-slate-900">
+                      <td className="p-3 text-right font-financial tabular-nums font-semibold text-slate-900 text-xs">
                         {formatMoney(tx.balance)}
                       </td>
                     </tr>
@@ -786,17 +789,17 @@ export default function MemberPortalPage() {
             </div>
           </div>
 
-          {/* Passbook Official Footer & Seals */}
-          <div className="pt-8 border-t flex justify-between items-end text-xs text-slate-500">
+          {/* Official Footer & Seals */}
+          <div className="pt-8 border-t border-slate-200 flex justify-between items-end text-xs text-slate-400">
             <div className="text-center">
               ____________________________<br />
               {language === 'bn' ? 'সদস্যের স্বাক্ষর' : "Member's Signature"}
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 border-2 border-emerald-800 rounded-full flex items-center justify-center mx-auto mb-1 text-[10px] text-emerald-900 font-bold rotate-[-12deg]">
+              <div className="w-14 h-14 border-2 border-slate-400 rounded-full flex items-center justify-center mx-auto mb-1 text-[9px] text-slate-500 font-medium rotate-[-12deg]">
                 {language === 'bn' ? 'ট-ক ২৮৪০/২১' : 'T-K 2840/21'}
                 <br />
-                {language === 'bn' ? 'সিলমোহর' : 'Official Seal'}
+                {language === 'bn' ? 'সিলমোহর' : 'Seal'}
               </div>
               {language === 'bn' ? 'সমিতির অফিশিয়াল সিল' : 'Cooperative Seal'}
             </div>

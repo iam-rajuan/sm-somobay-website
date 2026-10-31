@@ -8,16 +8,16 @@ export const Footer = () => {
   const { language } = useLanguage();
 
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           {/* Col 1: About */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-xs shrink-0">
+              <div className="w-8 h-8 rounded bg-emerald-700 flex items-center justify-center text-white font-bold text-xs shrink-0">
                 {language === 'bn' ? 'এস,এম' : 'SM'}
               </div>
-              <span className="font-bold text-base text-white">
+              <span className="font-semibold text-sm text-white leading-tight">
                 {language === 'bn'
                   ? 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ'
                   : 'S.M. Somobay Somity Ltd.'}
@@ -37,33 +37,33 @@ export const Footer = () => {
 
           {/* Col 2: Financial Products */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
               {language === 'bn' ? 'আর্থিক স্কিমসমূহ' : 'Financial Schemes'}
             </h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
                 {language === 'bn'
-                  ? 'সাধারণ সঞ্চয় হিসাব (General Savings)'
+                  ? 'সাধারণ সঞ্চয় হিসাব'
                   : 'General Savings Account'}
               </li>
               <li>
                 {language === 'bn'
-                  ? 'ডিপিএস মেয়াদী আমানত (DPS Scheme)'
+                  ? 'ডিপিএস মেয়াদী আমানত'
                   : 'Deposit Pension Scheme (DPS)'}
               </li>
               <li>
                 {language === 'bn'
-                  ? 'এফডিআর স্থায়ী আমানত (FDR Scheme)'
+                  ? 'এফডিআর স্থায়ী আমানত'
                   : 'Fixed Deposit Receipt (FDR)'}
               </li>
               <li>
                 {language === 'bn'
-                  ? 'ক্ষুদ্র ব্যবসা ও কৃষি ঋণ (Microcredit)'
+                  ? 'ক্ষুদ্র ব্যবসা ও কৃষি ঋণ'
                   : 'Micro-Credit & SME Loans'}
               </li>
               <li>
                 {language === 'bn'
-                  ? 'সদস্য শেয়ার মূলধন (Share Capital)'
+                  ? 'সদস্য শেয়ার মূলধন'
                   : 'Member Share Capital'}
               </li>
             </ul>
@@ -71,7 +71,7 @@ export const Footer = () => {
 
           {/* Col 3: Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
               {language === 'bn' ? 'সদস্য সেবাসমূহ' : 'Member Services'}
             </h4>
             <ul className="space-y-2 text-sm text-slate-400">
@@ -100,49 +100,50 @@ export const Footer = () => {
 
           {/* Col 4: Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              {language === 'bn' ? 'প্রধান কার্যালয় যোগাযোগ' : 'Head Office Contact'}
+            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+              {language === 'bn' ? 'যোগাযোগ' : 'Contact'}
             </h4>
             <div className="space-y-3 text-sm text-slate-400">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
                 <span>
                   {language === 'bn'
-                    ? 'প্রধান কার্যালয়: এলেঙ্গা বাসস্ট্যান্ড সংলগ্ন, কালিহাতী, টাঙ্গাইল, বাংলাদেশ'
-                    : 'Head Office: Elenga Bus Stand, Kalihati, Tangail, Bangladesh'}
+                    ? 'এলেঙ্গা বাসস্ট্যান্ড সংলগ্ন, কালিহাতী, টাঙ্গাইল'
+                    : 'Elenga Bus Stand, Kalihati, Tangail, Bangladesh'}
                 </span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="font-mono">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-slate-500 shrink-0" />
+                <span className="font-mono text-sm">
                   {language === 'bn' ? '০১৭০০-০০০০০০' : '+880 1700-000000'}
                 </span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="font-mono">info@smsomobay.org.bd</span>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-slate-500 shrink-0" />
+                <span className="font-mono text-sm">info@smsomobay.org.bd</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+        {/* Bottom bar */}
+        <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
           <p>
             © {new Date().getFullYear()}{' '}
             {language === 'bn'
               ? 'এস, এম ক্ষুদ্র সঞ্চয় ও ঋণদান সমবায় সমিতি লিঃ। সর্বস্বত্ব সংরক্ষিত।'
               : 'S.M. Khudra Sanchay O Rindan Samabay Samity Ltd. All rights reserved.'}
           </p>
-          <p className="flex items-center gap-1 mt-2 sm:mt-0">
+          <p className="flex items-center gap-1">
             {language === 'bn' ? (
               <>
-                বাংলাদেশের সমবায় ব্যাংকিং ব্যবস্থার জন্য আন্তরিকভাবে প্রস্তুতকৃত{' '}
-                <Heart className="w-3.5 h-3.5 text-rose-500 inline fill-rose-500" />
+                বাংলাদেশের সমবায় ব্যাংকিং ব্যবস্থার জন্য প্রস্তুতকৃত{' '}
+                <Heart className="w-3 h-3 text-rose-500 inline fill-rose-500" />
               </>
             ) : (
               <>
                 Engineered with{' '}
-                <Heart className="w-3.5 h-3.5 text-rose-500 inline fill-rose-500" /> for Bangladeshi Cooperatives
+                <Heart className="w-3 h-3 text-rose-500 inline fill-rose-500" /> for Bangladeshi Cooperatives
               </>
             )}
           </p>

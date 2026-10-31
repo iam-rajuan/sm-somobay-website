@@ -61,7 +61,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-slate-50/60 font-sans selection:bg-emerald-600 selection:text-white">
+      <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-white font-sans selection:bg-emerald-700 selection:text-white">
         <LanguageProvider initialLanguage={initialLanguage}>
           <Navbar />
           <main className="flex-1 min-w-0">{children}</main>

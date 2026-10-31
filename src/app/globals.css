@@ -61,12 +61,7 @@ html[lang="en"],
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #ffffff;
   font-family: var(--font-sans);
   letter-spacing: var(--letter-spacing-base);
   line-height: var(--line-height-base);
@@ -142,4 +137,39 @@ html[lang="bn"] .financial-num {
   font-family: var(--font-mono-tech) !important;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
+}
+
+/* Banking-grade table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table thead th {
+  text-align: left;
+  white-space: nowrap;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    font-size: 11pt;
+  }
+
+  header, footer {
+    display: none !important;
+  }
 }
