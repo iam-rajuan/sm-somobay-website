@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export type Language = 'bn' | 'en';
+export type Theme = 'light' | 'dark';
 
 export const toBengaliDigits = (input: string | number): string => {
   if (input === null || input === undefined) return '';
@@ -42,6 +43,9 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
   formatMoney: (val: number) => string;
   formatNum: (val: number | string) => string;
 }
@@ -50,6 +54,9 @@ const LanguageContext = createContext<LanguageContextType>({
   language: 'bn',
   setLanguage: () => {},
   toggleLanguage: () => {},
+  theme: 'light',
+  setTheme: () => {},
+  toggleTheme: () => {},
   formatMoney: (v) => `৳ ${v}`,
   formatNum: (v) => String(v),
 });
@@ -70,28 +77,39 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLang
     }
     return 'bn';
   });
-  const [mounted, setMounted] = useState(false);
+
+  const [theme, setThemeState] = useState<Theme>('light');
 
   useEffect(() => {
-    setMounted(true);
     try {
-      const saved = localStorage.getItem('sm_somity_lang') as Language;
-      if (saved === 'bn' || saved === 'en') {
-        if (saved !== language) {
-          setLanguageState(saved);
+      // 1. Language sync
+      const savedLang = localStorage.getItem('sm_somity_lang') as Language;
+      if (savedLang === 'bn' || savedLang === 'en') {
+        if (savedLang !== language) {
+          setLanguageState(savedLang);
         }
-        document.cookie = `sm_somity_lang=${saved}; path=/; max-age=31536000; SameSite=Lax`;
-        if (typeof document !== 'undefined') {
-          document.documentElement.lang = saved;
-          document.documentElement.setAttribute('data-lang', saved);
-        }
+        document.cookie = `sm_somity_lang=${savedLang}; path=/; max-age=31536000; SameSite=Lax`;
+        document.documentElement.lang = savedLang;
+        document.documentElement.setAttribute('data-lang', savedLang);
       } else {
         localStorage.setItem('sm_somity_lang', language);
         document.cookie = `sm_somity_lang=${language}; path=/; max-age=31536000; SameSite=Lax`;
-        if (typeof document !== 'undefined') {
-          document.documentElement.lang = language;
-          document.documentElement.setAttribute('data-lang', language);
+        document.documentElement.lang = language;
+        document.documentElement.setAttribute('data-lang', language);
+      }
+
+      // 2. Theme sync
+      const savedTheme = localStorage.getItem('sm_somity_theme') as Theme | null;
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        setThemeState(savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
         }
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setThemeState('dark');
+        document.documentElement.classList.add('dark');
       }
     } catch {
       // safe in non-browser env
@@ -131,6 +149,22 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLang
     setLanguage(language === 'bn' ? 'en' : 'bn');
   };
 
+  const setTheme = (t: Theme) => {
+    setThemeState(t);
+    try {
+      localStorage.setItem('sm_somity_theme', t);
+      if (t === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch {}
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   const formatMoney = (val: number) => formatCurrency(val, language);
   const formatNum = (val: number | string) => {
     const num = typeof val === 'number' ? val : parseFloat(val);
@@ -144,6 +178,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLang
         language,
         setLanguage,
         toggleLanguage,
+        theme,
+        setTheme,
+        toggleTheme,
         formatMoney,
         formatNum,
       }}
@@ -154,4 +191,3 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLang
 };
 
 export const useLanguage = () => useContext(LanguageContext);
-

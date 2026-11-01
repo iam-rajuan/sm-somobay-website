@@ -55,13 +55,19 @@ export default async function RootLayout({
                       document.title = 'S.M. Khudra Sanchay O Rindan Samabay Samity Limited';
                     }
                   }
+                  var theme = localStorage.getItem('sm_somity_theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
                 } catch (e) {}
               })();
             `,
           }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-white font-sans selection:bg-emerald-700 selection:text-white">
+      <body suppressHydrationWarning className="antialiased flex flex-col min-h-screen text-slate-900 bg-white dark:bg-[#060911] dark:text-slate-100 font-sans selection:bg-emerald-700 selection:text-white">
         <LanguageProvider initialLanguage={initialLanguage}>
           <Navbar />
           <main className="flex-1 min-w-0">{children}</main>

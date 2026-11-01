@@ -72,6 +72,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html.dark body {
+  background-color: #060911;
+  color: #f1f5f9;
+}
+
 /* Headings Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
@@ -152,6 +157,10 @@ table thead th {
 
 table tbody tr {
   border-bottom: 1px solid #f1f5f9;
+}
+
+html.dark table tbody tr {
+  border-bottom: 1px solid #1e293b;
 }
 
 table tbody tr:last-child {
